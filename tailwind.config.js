@@ -1,9 +1,8 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./resources/**/*.blade.php", "./resources/**/*.{js,jsx,ts,tsx}"],
-    theme: {
-        extend: {},
-    },
-    plugins: [
-        require("@tailwindcss/forms"),
-    ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'], // Certifique-se de que os caminhos estão corretos
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 };

@@ -1,14 +1,19 @@
-import { defineConfig } from "vite";
-
-import laravel from 'laravel-vite-plugin'
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-    plugins: [
-        laravel([
-            'resources/css/app.css',
-            'resources/js/main.tsx'
-        ]),
-        react()
-    ],
+  plugins: [react()],
+  server: {
+    port: 5173,
+    hmr: {
+      overlay: false, // Desabilita a sobreposição de erros no navegador
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      css: {
+        charset: false, // Garante que o CSS seja processado corretamente
+      },
+    },
+  },
 });
