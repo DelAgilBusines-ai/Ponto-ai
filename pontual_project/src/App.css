@@ -1,8 +1,100 @@
+/* Estilos gerais para o contêiner principal */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+/* Estilos para o cabeçalho */
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a202c; /* Cor escura */
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos para botões */
+button {
+  background-color: #2563eb; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e40af; /* Azul mais escuro */
+}
+
+button:disabled {
+  background-color: #a1a1aa; /* Cinza */
+  cursor: not-allowed;
+}
+
+/* Estilos para inputs */
+input {
+  border: 1px solid #cbd5e0; /* Cinza claro */
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb; /* Azul */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5); /* Azul translúcido */
+}
+
+/* Estilos para links */
+a {
+  color: #2563eb; /* Azul */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para mensagens de erro */
+.error {
+  color: #e53e3e; /* Vermelho */
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para listas */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #e2e8f0; /* Cinza claro */
+  padding: 0.5rem 0;
+}
+
+/* Estilos para responsividade */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
 }
 
 /* Adicione estilos personalizados aqui, se necessário */
