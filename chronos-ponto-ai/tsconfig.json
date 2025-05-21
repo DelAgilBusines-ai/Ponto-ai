@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "jsx": "react-jsx",
+      "baseUrl": ".", // Define a base para os caminhos relativos
+      "paths": {
+        "@/*": ["src/*"] // Configura o alias '@' para apontar para a pasta 'src'
+      },
+      "types": ["vite/client", "@types/react", "@types/react-dom", "@types/react-router-dom"],
+      "allowSyntheticDefaultImports": true, // Permite importações padrão
+      "esModuleInterop": true // Garante compatibilidade com módulos CommonJS
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+  }
+  

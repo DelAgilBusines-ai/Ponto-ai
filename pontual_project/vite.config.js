@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': '/src', // Facilita importações usando '@' como atalho para a pasta 'src'
+      '@': resolve(__dirname, './src'), // Facilita importações usando '@' como atalho para a pasta 'src'
     },
   },
 });

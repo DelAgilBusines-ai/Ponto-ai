@@ -1,19 +1,31 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Auth from './components/Auth';
-import Points from './components/Points';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
+import Login from '@/components/Auth';
+import Register from '@/components/Register';
+import ResetPassword from '@/components/ResetPassword';
+import Dashboard from '@/components/Dashboard';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <Router>
       <Navbar />
-      <main className="container mx-auto p-4">
-        <h1 className="text-4xl font-bold text-center mb-8">Ponto-AI</h1>
-        <Auth />
-        <Points />
-      </main>
-    </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;

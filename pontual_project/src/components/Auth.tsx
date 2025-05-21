@@ -1,122 +1,61 @@
 import React, { useState } from 'react';
-import { supabase } from '../supabaseClient';
+import { useNavigate, Link } from 'react-router-dom';
+import { supabase } from '@/supabaseClient';
 
-const Auth: React.FC = () => {
-  const [view, setView] = useState<'login' | 'register' | 'reset'>('login');
+const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    setError(null);
-    try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) throw error;
-      alert('Login realizado com sucesso!');
-    } catch (err: any) {
-      setError(err.message);
+    if (!email || !password) {
+      alert('Por favor, preencha o e-mail e a senha.');
+      return;
     }
-  };
 
-  const handleRegister = async () => {
-    setError(null);
+    setLoading(true);
     try {
-      const { error } = await supabase.auth.signUp({ email, password });
-      if (error) throw error;
-      alert('Registro realizado com sucesso! Verifique seu e-mail.');
-    } catch (err: any) {
-      setError(err.message);
-    }
-  };
-
-  const handleResetPassword = async () => {
-    setError(null);
-    try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email);
-      if (error) throw error;
-      alert('E-mail de redefinição de senha enviado!');
-    } catch (err: any) {
-      setError(err.message);
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        console.error('Erro ao fazer login:', error.message);
+        alert(error.message);
+      } else if (data.user) {
+        console.log('Login bem-sucedido:', data.user);
+        navigate('/dashboard'); // Redireciona para o dashboard após login
+      }
+    } catch (err) {
+      console.error('Erro inesperado ao fazer login:', err);
+      alert('Ocorreu um erro inesperado. Tente novamente.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div>
-      {view === 'login' && (
-        <div id="login">
-          <h2 className="text-2xl font-bold mb-4">Login</h2>
-          <form>
-            <input
-              type="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="button" onClick={handleLogin}>
-              Entrar
-            </button>
-          </form>
-          <button onClick={() => setView('register')} className="text-blue-600 hover:underline">
-            Não tem uma conta? Registre-se
-          </button>
-          <button onClick={() => setView('reset')} className="text-blue-600 hover:underline ml-4">
-            Esqueceu a senha?
-          </button>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-        </div>
-      )}
-      {view === 'register' && (
-        <div id="register">
-          <h2 className="text-2xl font-bold mb-4">Registro</h2>
-          <form>
-            <input
-              type="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="button" onClick={handleRegister}>
-              Registrar
-            </button>
-          </form>
-          <button onClick={() => setView('login')} className="text-blue-600 hover:underline">
-            Já tem uma conta? Faça login
-          </button>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-        </div>
-      )}
-      {view === 'reset' && (
-        <div id="reset-password">
-          <h2 className="text-2xl font-bold mb-4">Redefinir Senha</h2>
-          <form>
-            <input
-              type="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button type="button" onClick={handleResetPassword}>
-              Enviar e-mail de redefinição
-            </button>
-          </form>
-          <button onClick={() => setView('login')} className="text-blue-600 hover:underline">
-            Voltar para login
-          </button>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-        </div>
-      )}
+      <h1>Login</h1>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin} disabled={loading}>
+        {loading ? 'Carregando...' : 'Login'}
+      </button>
+      <p>
+        Não tem uma conta? <Link to="/register">Registre-se</Link>
+      </p>
+      <p>
+        <Link to="/reset-password">Esqueceu a senha?</Link>
+      </p>
     </div>
   );
 };
