@@ -26,12 +26,23 @@ const CompliancePage: React.FC = () => {
 
         data?.forEach((record) => {
           const checkInTime = new Date(record.check_in).getHours();
+          const checkOutTime = record.check_out ? new Date(record.check_out).getHours() : null;
+
+          // Verifica atrasos no check-in
           if (checkInTime > 9) {
             newAlerts.push({
               message: `Atraso detectado para o usuário ${record.user_id} às ${new Date(
                 record.check_in
               ).toLocaleTimeString()}.`,
               type: 'warning',
+            });
+          }
+
+          // Verifica horas extras
+          if (checkOutTime && checkOutTime - checkInTime > 8) {
+            newAlerts.push({
+              message: `Horas extras detectadas para o usuário ${record.user_id}.`,
+              type: 'error',
             });
           }
         });

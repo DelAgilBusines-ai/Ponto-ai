@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/services/supabaseClient';
+import TimeRecord from '@/components/TimeRecord';
+import Chatbot from '@/components/Chatbot';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -24,17 +26,21 @@ const Dashboard: React.FC = () => {
     if (error) {
       alert('Erro ao fazer logout: ' + error.message);
     } else {
-      navigate('/'); // Redireciona para a página de login
+      navigate('/');
     }
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 mt-20 relative min-h-screen"> {/* Alterado mt-6 para mt-20 para compensar a barra fixa */}
       <h1 className="text-3xl font-bold mb-4">Bem-vindo ao Chronos Ponto AI</h1>
       {user ? <p>Usuário: {user.email}</p> : <p>Carregando informações do usuário...</p>}
       <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">
         Logout
       </button>
+
+      <div className="mt-6">
+        <TimeRecord />
+      </div>
 
       <div className="mt-6">
         <h2 className="text-2xl font-semibold">Recursos Disponíveis</h2>
@@ -50,6 +56,8 @@ const Dashboard: React.FC = () => {
         <h2 className="text-2xl font-semibold">Próximos Passos</h2>
         <p className="mt-2">Explore os recursos no menu acima para começar.</p>
       </div>
+
+      <Chatbot />
     </div>
   );
 };
