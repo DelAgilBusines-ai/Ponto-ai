@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/supabaseClient';
+import { supabase } from '@/services/supabaseClient';
+import TimeRecord from '@/components/TimeRecord';
+import Chatbot from '@/components/Chatbot';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ const Dashboard: React.FC = () => {
     if (error) {
       alert('Erro ao fazer logout: ' + error.message);
     } else {
-      navigate('/'); // Redireciona para a página de login
+      navigate('/');
     }
   };
 
@@ -35,6 +37,10 @@ const Dashboard: React.FC = () => {
       <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">
         Logout
       </button>
+
+      <div className="mt-6">
+        <TimeRecord />
+      </div>
 
       <div className="mt-6">
         <h2 className="text-2xl font-semibold">Recursos Disponíveis</h2>
@@ -50,6 +56,8 @@ const Dashboard: React.FC = () => {
         <h2 className="text-2xl font-semibold">Próximos Passos</h2>
         <p className="mt-2">Explore os recursos no menu acima para começar.</p>
       </div>
+
+      <Chatbot />
     </div>
   );
 };
