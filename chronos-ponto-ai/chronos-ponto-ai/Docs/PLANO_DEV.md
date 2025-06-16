@@ -51,7 +51,7 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 #### **Análise Descritiva**
 - [x] Visão geral da frequência (gráficos interativos).
 - [x] Análise de horas trabalhadas (normais, extras, noturnas).
-- [ ] Relatórios personalizados (exportação em CSV, Excel, PDF).
+- [x] Relatórios personalizados (exportação em CSV, Excel, PDF).
 - [x] Mapas de calor de pontualidade.
 
 #### **Análise Preditiva**
@@ -63,7 +63,7 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 
 ### 2. Chatbot Inteligente
 - [x] Assistente virtual para responder perguntas baseadas nos dados.
-- [ ] Geração de insights proativos (ex.: alertas sobre horas extras).
+- [x] Geração de insights proativos (ex.: alertas sobre horas extras).
 - [ ] Suporte e orientações personalizadas sobre políticas internas e legislação.
 
 ---
@@ -71,7 +71,7 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 ### 3. Verificação de Conformidade
 - [x] Painel de conformidade para monitorar normas trabalhistas.
 - [x] Alertas automáticos sobre jornadas, intervalos e horas extras.
-- [ ] Trilhas de auditoria para fins de transparência.
+- [x] Trilhas de auditoria para fins de transparência.
 
 ---
 
@@ -99,17 +99,17 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 ## Próximos Passos
 
 ### Passo 1: Relatórios Personalizados
-- Desenvolver relatórios exportáveis em formatos como CSV, Excel e PDF.
-- Adicionar filtros avançados para personalização de relatórios.
+- [x] Implementar exportação em CSV, Excel e PDF.
+- [x] Adicionar filtros avançados para personalização de relatórios.
 
 ### Passo 2: Geração de Insights Proativos
-- Expandir o chatbot para gerar insights baseados em dados, como alertas de horas extras ou absenteísmo.
+- [x] Expandir o chatbot para gerar alertas baseados em dados, como horas extras ou absenteísmo.
 
 ### Passo 3: Trilhas de Auditoria
-- Implementar trilhas de auditoria para monitorar alterações em registros de ponto e conformidade.
+- [x] Implementar monitoramento de alterações em registros de ponto e conformidade.
 
 ### Passo 4: Testar e Refinar
-- Realizar testes de usabilidade e ajustar a interface com base no feedback.
+- [ ] Realizar testes de usabilidade e ajustar a interface conforme feedback.
 
 ---
 

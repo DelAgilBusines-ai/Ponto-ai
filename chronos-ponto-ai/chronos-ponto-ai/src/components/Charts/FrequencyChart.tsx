@@ -3,25 +3,27 @@ import { Bar } from 'react-chartjs-2';
 import { supabase } from '@/services/supabaseClient';
 
 interface FrequencyChartProps {
+  userId: string;
   onError?: (message: string) => void;
 }
 
-const FrequencyChart: React.FC<FrequencyChartProps> = ({ onError }) => {
+const FrequencyChart: React.FC<FrequencyChartProps> = ({ userId, onError }) => {
   const [chartData, setChartData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const { data: user, error: userError } = await supabase.auth.getUser();
-        if (userError || !user) {
-          throw new Error('Erro ao obter informações do usuário.');
-        }
+      if (!userId) {
+        if (onError) onError('ID do usuário não está definido.');
+        setLoading(false);
+        return;
+      }
 
+      try {
         const { data, error } = await supabase
           .from('time_records')
           .select('check_in')
-          .eq('user_id', user.id); // Filtra os registros pelo user_id do usuário logado
+          .eq('user_id', userId);
 
         if (error) {
           throw new Error(`Erro ao buscar dados de frequência: ${error.message}`);
@@ -56,7 +58,7 @@ const FrequencyChart: React.FC<FrequencyChartProps> = ({ onError }) => {
     };
 
     fetchData();
-  }, [onError]);
+  }, [userId, onError]);
 
   if (loading) {
     return <p>Carregando dados...</p>;
@@ -66,7 +68,40 @@ const FrequencyChart: React.FC<FrequencyChartProps> = ({ onError }) => {
     return <p className="text-red-500">Erro ao carregar os dados do gráfico.</p>;
   }
 
-  return <Bar data={chartData} options={{ responsive: true }} />;
+  return (
+    <div className="chart-container"> {/* Usando classe para limitar tamanho */}
+      <Bar
+        data={chartData}
+        options={{
+          responsive: true,
+          maintainAspectRatio: true, // Mantém a proporção do gráfico
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                font: {
+                  size: 12, // Ajusta o tamanho da fonte
+                },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                font: {
+                  size: 12, // Ajusta o tamanho da fonte
+                },
+              },
+            },
+          },
+        }}
+      />
+    </div>
+  );
 };
 
 export default FrequencyChart;

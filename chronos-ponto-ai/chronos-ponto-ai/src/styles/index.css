@@ -66,6 +66,13 @@ body {
   margin: 0 auto;
 }
 
+.chart-container {
+  max-width: 600px; /* Limita a largura máxima do gráfico */
+  height: 400px; /* Define uma altura fixa */
+  margin: 0 auto; /* Centraliza o gráfico */
+  overflow: hidden; /* Evita que o gráfico ultrapasse os limites */
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
