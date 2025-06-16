@@ -22,13 +22,14 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 
 ### 3. Navegação
 - [x] Configuração do React Router para navegação entre páginas.
-- [x] Navbar com links para login, registro, redefinição de senha e dashboard.
+- [x] Navbar fixa com links para login, registro, redefinição de senha, dashboard e relatórios.
 - [x] Proteção de rotas com `ProtectedRoute`.
 
 ### 4. Dashboard
 - [x] Exibição de informações do usuário autenticado.
 - [x] Logout.
-- [x] Placeholder para novos recursos, como análise de dados e conformidade.
+- [x] Registro de ponto (check-in e check-out).
+- [x] Integração com o chatbot inteligente.
 
 ### 5. Integração com o Supabase
 - [x] Configuração do cliente Supabase (`supabaseClient.ts`).
@@ -38,16 +39,24 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 - [x] Adição de estilos globais com Tailwind CSS.
 - [x] Atualização da identidade visual para refletir o branding do Chronos Ponto AI.
 
+### 7. Chatbot Inteligente
+- [x] Implementação de um chatbot funcional para responder perguntas frequentes.
+- [x] Suporte a comandos específicos, como "Exibir relatórios" e "Registrar ponto".
+
+### 8. Relatórios e Conformidade
+- [x] Página de relatórios com gráficos de frequência, horas extras e pontualidade.
+- [x] Página de conformidade com alertas sobre atrasos e problemas detectados.
+
 ---
 
 ## Funcionalidades Planejadas
 
 ### 1. Dashboards de Análise
 #### **Análise Descritiva**
-- [ ] Visão geral da frequência (gráficos interativos).
-- [ ] Análise de horas trabalhadas (normais, extras, noturnas).
+- [x] Visão geral da frequência (gráficos interativos).
+- [x] Análise de horas trabalhadas (normais, extras, noturnas).
 - [ ] Relatórios personalizados (exportação em CSV, Excel, PDF).
-- [ ] Mapas de calor de pontualidade.
+- [x] Mapas de calor de pontualidade.
 
 #### **Análise Preditiva**
 - [ ] Previsão de horas extras com machine learning.
@@ -57,15 +66,15 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 ---
 
 ### 2. Chatbot Inteligente
-- [ ] Assistente virtual para responder perguntas baseadas nos dados.
+- [x] Assistente virtual para responder perguntas baseadas nos dados.
 - [ ] Geração de insights proativos (ex.: alertas sobre horas extras).
 - [ ] Suporte e orientações personalizadas sobre políticas internas e legislação.
 
 ---
 
 ### 3. Verificação de Conformidade
-- [ ] Painel de conformidade para monitorar normas trabalhistas.
-- [ ] Alertas automáticos sobre jornadas, intervalos e horas extras.
+- [x] Painel de conformidade para monitorar normas trabalhistas.
+- [x] Alertas automáticos sobre jornadas, intervalos e horas extras.
 - [ ] Trilhas de auditoria para fins de transparência.
 
 ---
@@ -93,15 +102,15 @@ O **Chronos Ponto AI** é uma plataforma de gestão de ponto digital reimaginada
 
 ## Próximos Passos
 
-### Passo 1: Implementar Dashboards de Análise
-- Desenvolver componentes para visualizações descritivas e preditivas.
-- Usar bibliotecas como `Chart.js` ou `Recharts` para gráficos interativos.
+### Passo 1: Relatórios Personalizados
+- Desenvolver relatórios exportáveis em formatos como CSV, Excel e PDF.
+- Adicionar filtros avançados para personalização de relatórios.
 
-### Passo 2: Adicionar o Chatbot Inteligente
-- Integrar uma solução de chatbot, como o Dialogflow ou OpenAI API.
+### Passo 2: Geração de Insights Proativos
+- Expandir o chatbot para gerar insights baseados em dados, como alertas de horas extras ou absenteísmo.
 
-### Passo 3: Desenvolver o Painel de Conformidade
-- Criar um painel dedicado para monitorar a conformidade com normas trabalhistas.
+### Passo 3: Trilhas de Auditoria
+- Implementar trilhas de auditoria para monitorar alterações em registros de ponto e conformidade.
 
 ### Passo 4: Testar e Refinar
 - Realizar testes de usabilidade e ajustar a interface com base no feedback.
