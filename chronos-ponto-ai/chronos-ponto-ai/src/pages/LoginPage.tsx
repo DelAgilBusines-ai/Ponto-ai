@@ -10,7 +10,7 @@ const LoginPage: React.FC = () => {
         className="w-32 h-32 mb-6 animate-fade-in"
       />
       <h1 className="text-4xl font-bold mb-6 text-white animate-fade-in">
-        Bem-vindo ao Chronos Ponto AI
+        Login
       </h1>
       <div className="bg-white p-4 shadow rounded w-full max-w-sm">
         <Auth />
@@ -19,15 +19,7 @@ const LoginPage: React.FC = () => {
         >
           Login
         </button>
-        <p className="mt-4 text-center">
-          Não tem uma conta? <a href="/register" className="text-blue-500 hover:underline">Registre-se</a>
-        </p>
       </div>
-      <img
-        src="/logo teste 5 ponto.png"
-        alt="Ilustração de gestão de ponto"
-        className="w-full max-w-md mt-8 animate-fade-in"
-      />
     </div>
   );
 };

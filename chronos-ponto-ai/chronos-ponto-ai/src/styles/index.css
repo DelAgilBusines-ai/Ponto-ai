@@ -7,15 +7,15 @@
   --primary-color: #1e3a8a;
   --secondary-color: #3b82f6;
   --accent-color: #facc15;
-  --background-color: #f9fafb;
-  --text-color: #1f2937;
+  --background-color: #000000; /* Alterado para fundo preto */
+  --text-color: #ffffff; /* Alterado para texto branco */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -54,8 +54,8 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--background-color); /* Alterado para fundo preto */
+  color: var(--text-color); /* Alterado para texto branco */
   font-family: 'Inter', sans-serif;
   padding-top: 4rem; /* Adicionado espaçamento para evitar sobreposição com o Navbar */
 }

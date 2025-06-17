@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import HomePage from '@/pages/HomePage';
 import LoginPage from '@/pages/LoginPage';
 import Register from '@/components/Register';
 import ResetPassword from '@/components/ResetPassword';
@@ -15,8 +17,11 @@ function App() {
       <Navbar />
       <div className="pt-16"> {/* Adicionado espaçamento para evitar sobreposição com o Navbar */}
         <Routes>
+          {/* Rota para a página inicial */}
+          <Route path="/" element={<HomePage />} />
+
           {/* Rota para a página de login */}
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
 
           {/* Rota para a página de registro */}
           <Route path="/register" element={<Register />} />
@@ -55,6 +60,7 @@ function App() {
           />
         </Routes>
       </div>
+      <Footer /> {/* Adicionado o Footer */}
     </Router>
   );
 }
