@@ -13,46 +13,48 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        {/* Rota para a página de login */}
-        <Route path="/" element={<LoginPage />} />
+      <div className="pt-16"> {/* Adicionado espaçamento para evitar sobreposição com o Navbar */}
+        <Routes>
+          {/* Rota para a página de login */}
+          <Route path="/" element={<LoginPage />} />
 
-        {/* Rota para a página de registro */}
-        <Route path="/register" element={<Register />} />
+          {/* Rota para a página de registro */}
+          <Route path="/register" element={<Register />} />
 
-        {/* Rota para a página de redefinição de senha */}
-        <Route path="/reset-password" element={<ResetPassword />} />
+          {/* Rota para a página de redefinição de senha */}
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-        {/* Rota protegida para o dashboard */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
-        />
+          {/* Rota protegida para o dashboard */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Rota protegida para a página de relatórios */}
-        <Route
-          path="/reports"
-          element={
-            <ProtectedRoute>
-              <ReportsPage />
-            </ProtectedRoute>
-          }
-        />
+          {/* Rota protegida para a página de relatórios */}
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoute>
+                <ReportsPage />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Rota protegida para a página de conformidade */}
-        <Route
-          path="/compliance"
-          element={
-            <ProtectedRoute>
-              <CompliancePage />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+          {/* Rota protegida para a página de conformidade */}
+          <Route
+            path="/compliance"
+            element={
+              <ProtectedRoute>
+                <CompliancePage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </div>
     </Router>
   );
 }

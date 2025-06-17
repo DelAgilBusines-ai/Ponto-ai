@@ -28,8 +28,7 @@ const OvertimeChart: React.FC<{ userId: string; onError: (message: string) => vo
   }, [userId, onError]);
 
   return (
-    <div>
-      {/* Renderização do gráfico com os dados */}
+    <div className="chart-container" style={{ maxWidth: '400px', height: '300px' }}> {/* Reduzido o tamanho */}
       <p>Dados de horas extras: {JSON.stringify(data)}</p>
     </div>
   );

@@ -11,6 +11,10 @@ Chronos Ponto AI é uma plataforma de gestão de ponto digital com análise de d
 - **Análise de Dados (Descritiva e Preditiva)**:
   - Gráficos de frequência e horas extras implementados.
   - Relatórios disponíveis na página de relatórios.
+- **Análise Preditiva**:
+  - Previsão de horas extras com base nos registros de ponto.
+  - Identificação de risco de absenteísmo.
+  - Exibição de alertas no dashboard.
 - **Conformidade com Normas Trabalhistas**:
   - Verificação de atrasos e alertas de conformidade.
 - **Autenticação**:

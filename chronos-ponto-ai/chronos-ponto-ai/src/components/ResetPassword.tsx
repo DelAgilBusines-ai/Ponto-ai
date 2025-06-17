@@ -71,39 +71,64 @@ const ResetPassword = () => {
 
   if (isResetMode) {
     return (
-      <div>
-        <h1>Redefinir Senha</h1>
-        <input
-          type="password"
-          placeholder="Nova senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+      <div className="p-6 bg-gray-100 min-h-screen">
+        <img
+          src="/reset-password-banner.png"
+          alt="Banner de Redefinição de Senha"
+          className="w-full max-w-4xl mx-auto mb-6 rounded-lg shadow-md"
         />
-        <input
-          type="password"
-          placeholder="Confirme a nova senha"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <button onClick={handleResetPassword} disabled={loading}>
-          {loading ? 'Redefinindo...' : 'Redefinir Senha'}
-        </button>
+        <h1 className="text-3xl font-bold mb-6">Redefinir Senha</h1>
+        <div className="bg-white p-4 shadow rounded">
+          <input
+            type="password"
+            placeholder="Nova senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded mb-4"
+          />
+          <input
+            type="password"
+            placeholder="Confirme a nova senha"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded mb-4"
+          />
+          <button
+            onClick={handleResetPassword}
+            disabled={loading}
+            className="bg-blue-500 text-white px-4 py-2 rounded w-full"
+          >
+            {loading ? 'Redefinindo...' : 'Redefinir Senha'}
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>Solicitar Redefinição de Senha</h1>
-      <input
-        type="email"
-        placeholder="Digite seu e-mail"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <img
+        src="/reset-password-banner.png"
+        alt="Banner de Solicitação de Redefinição de Senha"
+        className="w-full max-w-4xl mx-auto mb-6 rounded-lg shadow-md"
       />
-      <button onClick={handleSendResetEmail} disabled={loading}>
-        {loading ? 'Enviando...' : 'Enviar e-mail de redefinição'}
-      </button>
+      <h1 className="text-3xl font-bold mb-6">Solicitar Redefinição de Senha</h1>
+      <div className="bg-white p-4 shadow rounded">
+        <input
+          type="email"
+          placeholder="Digite seu e-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+        />
+        <button
+          onClick={handleSendResetEmail}
+          disabled={loading}
+          className="bg-blue-500 text-white px-4 py-2 rounded w-full"
+        >
+          {loading ? 'Enviando...' : 'Enviar e-mail de redefinição'}
+        </button>
+      </div>
     </div>
   );
 };

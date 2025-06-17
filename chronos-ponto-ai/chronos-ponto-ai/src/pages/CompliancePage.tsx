@@ -58,6 +58,11 @@ const CompliancePage: React.FC = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
+      <img
+        src="/compliance-banner.png"
+        alt="Banner de Conformidade"
+        className="w-full max-w-4xl mx-auto mb-6 rounded-lg shadow-md"
+      />
       <h1 className="text-3xl font-bold mb-6">Conformidade</h1>
       <div className="bg-white p-4 shadow rounded">
         <h2 className="text-xl font-semibold mb-4">Status de Conformidade</h2>

@@ -63,60 +63,66 @@ const ReportsPage: React.FC = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Relatórios</h1>
-      {loading ? (
-        <div className="text-blue-500">
-          <p>Carregando dados...</p>
-        </div>
-      ) : error ? (
-        <div className="text-red-500">
-          <p>Erro ao carregar os relatórios: {error}</p>
-        </div>
-      ) : userId ? (
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white p-4 shadow rounded">
-              <h2 className="text-xl font-semibold mb-4">Frequência</h2>
-              <FrequencyChart userId={userId} onError={handleError} />
+      <img
+        src="/reports-banner.png"
+        alt="Banner de Relatórios"
+        className="w-full max-w-4xl mx-auto mb-6 rounded-lg shadow-md"
+      />
+      <h1 className="text-3xl font-bold mb-6 text-center">Relatórios</h1>
+      <div className="bg-white p-4 shadow rounded">
+        {loading ? (
+          <div className="text-blue-500">
+            <p>Carregando dados...</p>
+          </div>
+        ) : error ? (
+          <div className="text-red-500">
+            <p>Erro ao carregar os relatórios: {error}</p>
+          </div>
+        ) : userId ? (
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white p-4 shadow rounded">
+                <h2 className="text-xl font-semibold mb-4">Frequência</h2>
+                <FrequencyChart userId={userId} onError={handleError} />
+              </div>
+              <div className="bg-white p-4 shadow rounded">
+                <h2 className="text-xl font-semibold mb-4">Horas Extras</h2>
+                <OvertimeChart userId={userId} onError={handleError} />
+              </div>
+              <div className="bg-white p-4 shadow rounded md:col-span-2">
+                <h2 className="text-xl font-semibold mb-4">Pontualidade</h2>
+                <HeatmapChart userId={userId} onError={handleError} />
+              </div>
             </div>
-            <div className="bg-white p-4 shadow rounded">
-              <h2 className="text-xl font-semibold mb-4">Horas Extras</h2>
-              <OvertimeChart userId={userId} onError={handleError} />
-            </div>
-            <div className="bg-white p-4 shadow rounded md:col-span-2">
-              <h2 className="text-xl font-semibold mb-4">Pontualidade</h2>
-              <HeatmapChart userId={userId} onError={handleError} />
+            <div className="mt-6 flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+              <button
+                className="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => handleExport('csv')}
+              >
+                Exportar CSV
+              </button>
+              <button
+                className="button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => handleExport('excel')}
+              >
+                Exportar Excel
+              </button>
+              <button
+                className="button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => handleExport('pdf')}
+              >
+                Exportar PDF
+              </button>
             </div>
           </div>
-          <div className="mt-6 flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-            <button
-              className="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => handleExport('csv')}
-            >
-              Exportar CSV
-            </button>
-            <button
-              className="button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => handleExport('excel')}
-            >
-              Exportar Excel
-            </button>
-            <button
-              className="button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => handleExport('pdf')}
-            >
-              Exportar PDF
-            </button>
+        ) : (
+          <div className="text-yellow-500">
+            <p>Carregando dados do usuário...</p>
           </div>
-        </div>
-      ) : (
-        <div className="text-yellow-500">
-          <p>Carregando dados do usuário...</p>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
-
 };
 
 export default ReportsPage;

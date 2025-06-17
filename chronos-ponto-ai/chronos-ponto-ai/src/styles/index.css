@@ -57,6 +57,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
+  padding-top: 4rem; /* Adicionado espaçamento para evitar sobreposição com o Navbar */
 }
 
 .container {
@@ -79,21 +80,41 @@ h1 {
   text-align: center;
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
 button {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 0.375rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
+
 button:hover {
   background-color: var(--secondary-color);
+  transform: scale(1.05);
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto var(--accent-color);
   outline-offset: 2px;
 }
 

@@ -69,12 +69,12 @@ const FrequencyChart: React.FC<FrequencyChartProps> = ({ userId, onError }) => {
   }
 
   return (
-    <div className="chart-container"> {/* Usando classe para limitar tamanho */}
+    <div className="chart-container" style={{ maxWidth: '400px', height: '300px' }}> {/* Reduzido o tamanho */}
       <Bar
         data={chartData}
         options={{
           responsive: true,
-          maintainAspectRatio: true, // Mantém a proporção do gráfico
+          maintainAspectRatio: true,
           plugins: {
             legend: {
               display: true,
@@ -85,7 +85,7 @@ const FrequencyChart: React.FC<FrequencyChartProps> = ({ userId, onError }) => {
             x: {
               ticks: {
                 font: {
-                  size: 12, // Ajusta o tamanho da fonte
+                  size: 12,
                 },
               },
             },
@@ -93,7 +93,7 @@ const FrequencyChart: React.FC<FrequencyChartProps> = ({ userId, onError }) => {
               beginAtZero: true,
               ticks: {
                 font: {
-                  size: 12, // Ajusta o tamanho da fonte
+                  size: 12,
                 },
               },
             },
